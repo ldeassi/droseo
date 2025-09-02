@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 interface cardDataType {
     imgSrc: string;
-    heading: string;
+    description: "Used the plant disease dataset from Kaggle and trained a image classifer model using &apos;PyTorch&apos; framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. We were able to achieve an accuracy of 98% by using Resnet34 pretrained model.",
     percent: string;
     subheading: string;
 }
