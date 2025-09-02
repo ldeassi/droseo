@@ -2,11 +2,10 @@ import Image from 'next/image';
 
 interface cardDataType {
     imgSrc: string;
-    description: "Used the plant disease dataset from Kaggle and trained a image classifer model using &apos;PyTorch&apos; framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. We were able to achieve an accuracy of 98% by using Resnet34 pretrained model.",
+    description: string;
     percent: string;
     subheading: string;
 }
-
 
 interface Project {
     imgSrc: string;
@@ -41,37 +40,67 @@ const projects: Project[] = [
     {
         imgSrc: '/assets/projects/leaf.png',
         title: 'Plant AI',
-        description: "Used the plant disease dataset from Kaggle and trained a image classifer model using 'PyTorch' framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. We were able to achieve an accuracy of 98% by using Resnet34 pretrained model.",
+        description: 'Used the plant disease dataset from Kaggle and trained a image classifer model using PyTorch framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. We were able to achieve an accuracy of 98% by using Resnet34 pretrained model.',
         ghLink: 'https://github.com/ldeassi/Plant_AI',
         demoLink: 'https://plant49-ai.herokuapp.com/',
     },
 ];
 
-
 const Buyers = () => {
     return (
-        <div id='portfolio' className='mx-auto max-w-7xl py-16 px-6'>
-            <h1 className="text-4xl font-bold text-center mb-8">Our Recent <span className="text-blue-600">Works</span></h1>
-            <p className="text-center text-lg text-gray-600 mb-12">Here are a few projects we've worked on recently.</p>
-            <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-8'>
+        <div id="portfolio" className="mx-auto max-w-7xl py-16 px-6">
+            <h1 className="text-4xl font-bold text-center mb-8">
+                Our Recent <span className="text-blue-600">Works</span>
+            </h1>
+            <p className="text-center text-lg text-gray-600 mb-12">
+                Here are a few projects we have worked on recently.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-8">
                 {projects.map((project, i) => (
-                    <div className='flex flex-col justify-between items-center bg-white rounded-2xl shadow-lg p-6 border border-[#d1d5db]' key={i}>
-                        <div className='flex justify-center mb-4'>
-                            <Image src={project.imgSrc} alt={project.title} width={160} height={160} className="rounded-xl object-cover" />
+                    <div 
+                        className="flex flex-col justify-between items-center bg-white rounded-2xl shadow-lg p-6 border border-[#d1d5db]" 
+                        key={i}
+                    >
+                        <div className="flex justify-center mb-4">
+                            <Image 
+                                src={project.imgSrc} 
+                                alt={project.title} 
+                                width={160} 
+                                height={160} 
+                                className="rounded-xl object-cover" 
+                            />
                         </div>
-                        <h2 className='text-xl font-semibold text-center mb-2'>{project.title}</h2>
-                        <p className='text-base text-gray-700 text-center mb-4'>{project.description}</p>
-                        <div className='flex gap-3 justify-center mt-auto'>
-                            <a href={project.ghLink} target="_blank" rel="noopener noreferrer" className="bg-[#32a852] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition">GitHub</a>
+                        <h2 className="text-xl font-semibold text-center mb-2">
+                            {project.title}
+                        </h2>
+                        <p className="text-base text-gray-700 text-center mb-4">
+                            {project.description}
+                        </p>
+                        <div className="flex gap-3 justify-center mt-auto">
+                            <a 
+                                href={project.ghLink} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="bg-[#32a852] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition"
+                            >
+                                GitHub
+                            </a>
                             {project.demoLink && (
-                                <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="bg-[#2563eb] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">Demo</a>
+                                <a 
+                                    href={project.demoLink} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="bg-[#2563eb] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition"
+                                >
+                                    Demo
+                                </a>
                             )}
                         </div>
                     </div>
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Buyers;
