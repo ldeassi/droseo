@@ -8,6 +8,7 @@ const ContactUs: React.FC = () => {
     email: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -15,25 +16,27 @@ const ContactUs: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      // const res = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(form),
-      // });
-      // const data = await res.json();
-      // if (res.ok) {
-      //   alert('Message sent!');
-      //   setForm({ firstName: '', lastName: '', email: '', message: '' });
-      // } else {
-      //   alert('Failed to send message: ' + (data.message || 'Unknown error'));
-      // }
-      console.log("Handling mail")
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      console.log(data)
+      if (res.ok) {
+        alert('Message sent!');
+        setForm({ firstName: '', lastName: '', email: '', message: '' });
+      } else {
+        alert('Failed to send message: ' + (data.message || 'Unknown error'));
+      }
     } catch (error) {
       alert('Failed to send message: ' + error);
     }
+    setLoading(false);
   };
 
   return (
@@ -80,12 +83,13 @@ const ContactUs: React.FC = () => {
                 className="w-full px-4 py-2 border border-[#d1d5db] rounded-lg focus:outline-none focus:ring-0 focus:border-[#9ca3af] min-h-[120px]"
                 required
               />
-              <div className="w-full flex justify-end">
+              <div className="w-full flex justify-end items-center gap-4">
                 <button
                   type="submit"
-                  className="bg-[#2563eb] text-white font-semibold py-3 px-8 rounded-lg hover:bg-[#1d4ed8] w-fit"
+                  className="bg-[#2563eb] text-white font-semibold py-3 px-8 rounded-lg hover:bg-[#1d4ed8] w-fit disabled:opacity-60"
+                  disabled={loading}
                 >
-                  Submit
+                  {loading ? 'Sending...' : 'Submit'}
                 </button>
               </div>
             </form>
