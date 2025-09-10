@@ -18,7 +18,7 @@ const Banner = () => {
 
 
                     <div className="text-center mt-5">
-                        <a href="#buyers" className='inline-block text-15px text-white font-medium bg-blue py-5 px-9 mt-2 leafbutton'>
+                        <a href="#portfolio" className='inline-block text-15px text-white font-medium bg-blue py-5 px-9 mt-2 leafbutton'>
                             See our portfolio
                         </a>  
                     </div>

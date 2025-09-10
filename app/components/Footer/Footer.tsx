@@ -65,7 +65,7 @@ const footer = () => {
                     <div className='col-span-4 md:col-span-4 lg:col-span-4'>
                         <div className="flex gap-2">
                             <Image src={'/assets/footer/mask.svg'} alt="mask-icon" width={24} height={24} />
-                            <h5 className="text-base font-normal text-offwhite">925 Filbert Street Pennsylvania 18072</h5>
+                            <h5 className="text-base font-normal text-offwhite">19487 Delaware cir Boca raton fl 33434 United States</h5>
                         </div>
                         <div className="flex gap-2 mt-10">
                             <Image src={'/assets/footer/telephone.svg'} alt="telephone-icon" width={24} height={24} />

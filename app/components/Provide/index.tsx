@@ -46,6 +46,7 @@ const Provide = () => {
                         <div className="flex flex-col align-middle justify-center p-10">
                             <p className="text-4xl lg:text-6xl pt-4 font-semibold lh-81 mt-5 text-center lg:text-start">Services built for shipping real products.</p>
                             <h4 className="text-lg pt-4 font-normal lh-33 text-center lg:text-start text-bluegray">We design, build, and scale modern web apps using React, Next.js, Node.js, JavaScript, TypeScript, and Python. Engagements from prototypes to long‑term product teams.</h4>
+                            <p className="text-base pt-3 font-normal text-center lg:text-start text-bluegray">Core technologies: React, Next.js, Node.js, JavaScript, TypeScript, Python.</p>
                             <Link href={'#contact'} className="mt-4 text-xl font-medium text-blue flex gap-2 mx-auto lg:mx-0 space-links">Start a project <Image src={'/assets/provide/arrow.svg'} alt={'arrow'} width={20} height={20} /></Link>
                         </div>
                     </div>
